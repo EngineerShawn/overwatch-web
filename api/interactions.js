@@ -2,6 +2,7 @@ import { buffer } from 'micro';
 import nacl from 'tweetnacl';
 
 const DISCORD_PUBLIC_KEY = process.env.DISCORD_PUBLIC_KEY;
+console.log('DISCORD_PUBLIC_KEY:', DISCORD_PUBLIC_KEY);
 
 export const config = {
   api: {
@@ -17,7 +18,7 @@ export default async function handler(req, res) {
   try {
     const signature = req.headers['x-signature-ed25519'];
     const timestamp = req.headers['x-signature-timestamp'];
-    const rawBody = (await buffer(req)).toString('utf8');
+    const rawBody = (await buffer(req)).toString('utf-8');
 
     // 🚨 Fallback if required values are missing
     if (!signature || !timestamp || !DISCORD_PUBLIC_KEY || !rawBody) {
