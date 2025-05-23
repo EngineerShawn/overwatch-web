@@ -1,15 +1,15 @@
 {
   "version": 2,
   "builds": [
-    { 
-        "src": "api/interactions.js", 
-        "use": "@vercel/node" 
+    {
+      "src": "api/interactions.js",
+      "use": "@vercel/node"
     }
   ],
   "routes": [
-    
-    { "src": "/api/interactions", "dest": "/api/interactions.js" },
-    { "src": "/terms", "dest": "/public/terms.html" },
-    { "src": "/privacy", "dest": "/public/privacy.html" }
+    {
+      "src": "/api/interactions",
+      "dest": "api/interactions.js"
+    }
   ]
 }

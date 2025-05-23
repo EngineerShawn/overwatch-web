@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
-  
+  "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -12,15 +12,14 @@
     "url": "git+https://github.com/EngineerShawn/overwatch-web.git"
   },
   "keywords": [],
-  "author": "",
+  "author": "EngineerShawn",
   "license": "ISC",
-  "type": "commonjs",
   "bugs": {
     "url": "https://github.com/EngineerShawn/overwatch-web/issues"
   },
   "homepage": "https://github.com/EngineerShawn/overwatch-web#readme",
   "dependencies": {
-    "buffer": "^6.0.3",
+    "micro": "^9.3.4",
     "tweetnacl": "^1.0.3"
   }
 }
