@@ -18,7 +18,7 @@ export default async function handler(req, res) {
     // Verify the request signature
     const signature = req.headers['x-signature-ed25519'];
     const timestamp = req.headers['x-signature-timestamp'];
-    const rawBody = (await buffer(req)).toString('utf-8');
+    const rawBody = (await buffer(req)).toString('utf8');
     
 
     const isVerified = nacl.sign.detached.verify(
