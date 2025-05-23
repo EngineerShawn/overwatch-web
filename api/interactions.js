@@ -11,6 +11,11 @@ export const config = {
 };
 
 export default async function handler(req, res) {
+    if (req.method !== 'POST') {
+        return res.status(405).json({ message: 'Method Not Allowed' });
+    }
+    try {
+    // Verify the request signature
     const signature = req.headers['x-signature-ed25519'];
     const timestamp = req.headers['x-signature-timestamp'];
     const rawBody = (await buffer(req)).toString('utf-8');
@@ -34,6 +39,10 @@ export default async function handler(req, res) {
         return res.status(200).json({ type: 1 });
     }
     return res.status(200).json({ type: 5 }); //ACK other interaction types
+} catch (err) {
+    console.error('🔥 ERROR in /api/interactions:', err);
+    return res.status(500).send('Internal server error');
+    }
 }
 
 // async function getRawBody(req) {
