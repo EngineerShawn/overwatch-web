@@ -1,4 +1,3 @@
-// api/interactions.js
 import { buffer } from 'micro';
 import nacl from 'tweetnacl';
 
